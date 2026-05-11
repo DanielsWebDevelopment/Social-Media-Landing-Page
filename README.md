@@ -35,10 +35,6 @@ Welcome to SM Marketing, your one-stop destination for all things related to soc
 [![Bootstrap](https://img.shields.io/badge/Framework-Bootstrap-blueviolet)](https://getbootstrap.com/)
 [![GSAP](https://img.shields.io/badge/Library-GSAP-brightgreen)](https://greensock.com/gsap/)
 
-## Website Link
-
-[SM Marketing Website](https://dynamic-tiramisu-1cf7e8.netlify.app/#online)
-
 ## Screenshots
 
 ![SM Marketing](https://github.com/DanielsWebDevelopment/Social-Media-Landing-Page/assets/129445203/961bbc03-6def-4ed2-bc22-b46a424e206f)
