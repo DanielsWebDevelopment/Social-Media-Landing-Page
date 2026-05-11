@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SM Editor - Manage Your Landing Pages</title>
+    
+    <!-- ==== Bootstrap5 CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- ===== Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
+    <!-- ============ Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+    
+    <!-- ============ CSS Stylesheet -->
+    <link rel="stylesheet" href="./dist/style.css">
+    <style>
+        :root {
+            --sidebar-width: 280px;
+            --header-height: 70px;
+            --clr-glass: rgba(255, 255, 255, 0.1);
+            --clr-glass-border: rgba(255, 255, 255, 0.2);
+        }
+
+        body {
+            overflow: hidden;
+            background: #f8f9fa;
+        }
+
+        .editor-container {
+            display: flex;
+            height: 100vh;
+            width: 100vw;
+        }
+
+        /* Sidebar Styles */
+        .editor-sidebar {
+            width: var(--sidebar-width);
+            height: 100%;
+            background: #fff;
+            border-right: 1px solid #e0e0e0;
+            display: flex;
+            flex-direction: column;
+            z-index: 10;
+        }
+
+        .sidebar-header {
+            height: var(--header-height);
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+            border-bottom: 1px solid #f0f0f0;
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: #333;
+        }
+
+        .repo-list {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px 10px;
+        }
+
+        .repo-item {
+            padding: 12px 15px;
+            margin-bottom: 8px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #555;
+            font-size: 0.95rem;
+        }
+
+        .repo-item:hover {
+            background: #f0f4f8;
+            color: #333;
+        }
+
+        .repo-item i {
+            color: #888;
+        }
+
+        .repo-item.active {
+            background: var(--clr-primary);
+            color: #fff;
+        }
+
+        .repo-item.active i {
+            color: #fff;
+        }
+
+        /* Main Area Styles */
+        .editor-main {
+            flex: 1;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            background: #fff;
+        }
+
+        .editor-header {
+            height: var(--header-height);
+            background: #fff;
+            border-bottom: 1px solid #e0e0e0;
+            display: flex;
+            align-items: center;
+            padding: 0 30px;
+            justify-content: space-between;
+        }
+
+        /* Empty State Styles */
+        .empty-state {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 40px;
+            position: relative;
+            background: #fff;
+            overflow: hidden;
+        }
+
+        .empty-state-content {
+            z-index: 2;
+            max-width: 500px;
+        }
+
+        .empty-state-icon-container {
+            width: 120px;
+            height: 120px;
+            background: #f0f4f8;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 30px;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .empty-state-icon-container i {
+            font-size: 3.5rem;
+            background: var(--clr-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .empty-state h2 {
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #2d3436;
+        }
+
+        .empty-state p {
+            color: #636e72;
+            margin-bottom: 35px;
+            line-height: 1.6;
+        }
+
+        .btn-connect {
+            background: var(--clr-primary);
+            color: #fff;
+            padding: 12px 35px;
+            border-radius: 50px;
+            font-weight: 600;
+            border: none;
+            box-shadow: 0 10px 20px rgba(211, 111, 19, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .btn-connect:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(211, 111, 19, 0.3);
+            color: #fff;
+        }
+
+        /* Floating background elements */
+        .floating-blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.15;
+            z-index: 1;
+        }
+
+        .blob-1 {
+            width: 300px;
+            height: 300px;
+            background: #FA3EE7;
+            top: -50px;
+            right: -50px;
+        }
+
+        .blob-2 {
+            width: 400px;
+            height: 400px;
+            background: #D36F13;
+            bottom: -100px;
+            left: -100px;
+        }
+
+        /* Glass Cards Decoration */
+        .glass-card {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 15px;
+            padding: 15px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.05);
+            z-index: 1;
+            width: 150px;
+        }
+
+        .card-1 { top: 20%; right: 15%; transform: rotate(15deg); }
+        .card-2 { bottom: 25%; left: 10%; transform: rotate(-10deg); }
+        
+        .skeleton-line {
+            height: 8px;
+            background: #e0e0e0;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+        .skeleton-line.short { width: 60%; }
+        .skeleton-line.medium { width: 80%; }
+    </style>
+</head>
+<body>
+    <div class="editor-container">
+        <!-- Sidebar -->
+        <aside class="editor-sidebar">
+            <div class="sidebar-header">
+                <span class="logo">SM Editor</span>
+            </div>
+            <div class="repo-list">
+                <div class="repo-item">
+                    <i class="ri-folder-line"></i>
+                    <span>portfolio-site</span>
+                </div>
+                <div class="repo-item">
+                    <i class="ri-folder-line"></i>
+                    <span>marketing-campaign-june</span>
+                </div>
+                <div class="repo-item">
+                    <i class="ri-folder-line"></i>
+                    <span>client-alpha-landing</span>
+                </div>
+            </div>
+            <div class="p-3">
+                <button class="btn btn-outline-secondary w-100 btn-sm rounded-pill">
+                    <i class="fa-solid fa-plus me-2"></i>New Repository
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="editor-main">
+            <header class="editor-header">
+                <div class="breadcrumb-area">
+                    <small class="text-muted">Projects / </small>
+                </div>
+                <div class="user-actions">
+                    <i class="fa-regular fa-bell me-3 text-muted"></i>
+                    <img src="./assets/TImage.png" alt="user" style="width: 35px; height: 35px; border-radius: 50%;">
+                </div>
+            </header>
+
+            <!-- Empty State Section -->
+            <section class="empty-state" id="empty-state">
+                <div class="floating-blob blob-1"></div>
+                <div class="floating-blob blob-2"></div>
+                
+                <div class="glass-card card-1">
+                    <div class="skeleton-line"></div>
+                    <div class="skeleton-line medium"></div>
+                    <div class="skeleton-line short"></div>
+                </div>
+                <div class="glass-card card-2">
+                    <div class="skeleton-line medium"></div>
+                    <div class="skeleton-line"></div>
+                </div>
+
+                <div class="empty-state-content">
+                    <div class="empty-state-icon-container" id="icon-container">
+                        <i class="fa-solid fa-code-branch"></i>
+                    </div>
+                    <h2>No repository selected</h2>
+                    <p>Select a repository from the sidebar to start editing your landing pages, or connect a new GitHub repository to your workspace.</p>
+                    <a href="#" class="btn btn-connect">
+                        <i class="fa-brands fa-github me-2"></i>Connect Repository
+                    </a>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- ============== GSAP CDN ==================== -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Animate floating blobs
+            gsap.to(".blob-1", {
+                x: 100,
+                y: 50,
+                duration: 20,
+                repeat: -1,
+                yoyo: true,
+                ease: "sine.inOut"
+            });
+            gsap.to(".blob-2", {
+                x: -50,
+                y: -100,
+                duration: 25,
+                repeat: -1,
+                yoyo: true,
+                ease: "sine.inOut"
+            });
+
+            // Animate glass cards
+            gsap.to(".card-1", {
+                y: -20,
+                duration: 4,
+                repeat: -1,
+                yoyo: true,
+                ease: "power1.inOut"
+            });
+            gsap.to(".card-2", {
+                y: 15,
+                duration: 5,
+                repeat: -1,
+                yoyo: true,
+                ease: "power1.inOut"
+            });
+
+            // Entrance animation for content
+            const tl = gsap.timeline();
+            tl.from(".empty-state-content > *", {
+                y: 30,
+                opacity: 0,
+                stagger: 0.2,
+                duration: 1,
+                ease: "power3.out"
+            })
+            .from(".empty-state-icon-container", {
+                scale: 0.5,
+                opacity: 0,
+                duration: 1,
+                ease: "back.out(1.7)"
+            }, "-=1");
+        });
+    </script>
+</body>
+</html>
