@@ -33,7 +33,6 @@ Welcome to SM Marketing, your one-stop destination for all things related to soc
 [![CSS3](https://img.shields.io/badge/Language-CSS3-blue)](https://developer.mozilla.org/en-US/docs/Web/CSS)
 [![Swiper.js](https://img.shields.io/badge/Library-Swiper.js-green)](https://swiperjs.com/)
 [![Bootstrap](https://img.shields.io/badge/Framework-Bootstrap-blueviolet)](https://getbootstrap.com/)
-[![GSAP](https://img.shields.io/badge/Library-GSAP-brightgreen)](https://greensock.com/gsap/)
 
 ## Website Link
 
