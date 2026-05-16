@@ -1,0 +1,11 @@
+name: Slow CI
+
+on:
+  pull_request:
+
+jobs:
+  slow:
+    runs-on: ubuntu-latest
+    steps:
+      - run: sleep 180
+      - run: echo "done"
