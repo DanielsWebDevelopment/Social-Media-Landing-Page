@@ -101,7 +101,7 @@ html {
 .navbar .navbar__toggle.active .bar:nth-child(2) {
   opacity: 0;
 }
-.navbar .navbar__toggle.active .bar:last-child {
+.navbar .navbar__toggle.active .bar {
   transform: rotate(-45deg) translate(4px, 3px);
 }
 
