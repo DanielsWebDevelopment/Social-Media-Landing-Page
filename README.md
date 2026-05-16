@@ -9,7 +9,6 @@ Welcome to SM Marketing, your one-stop destination for all things related to soc
 - JavaScript
 - Swiper.js
 - Bootstrap
-- GSAP (GreenSock Animation Platform)
 
 ## Features
 
@@ -17,7 +16,6 @@ Welcome to SM Marketing, your one-stop destination for all things related to soc
 - Engaging animations powered by GSAP to enhance user experience.
 - Integration of Swiper.js for interactive carousel elements.
 - Utilization of Bootstrap for streamlined and responsive layout.
-- Learning opportunities to improve JavaScript skills, especially through the use of GSAP.
 
 ## Learning Goals
 
