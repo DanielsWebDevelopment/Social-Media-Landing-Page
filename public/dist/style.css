@@ -95,7 +95,7 @@ html {
 .navbar .navbar__toggle .bar + .bar {
   margin-top: 6px;
 }
-.navbar .navbar__toggle.active .bar:first-child {
+.navbar .navbar__toggle.active .bar {
   transform: rotate(45deg) translate(16px, 9px);
 }
 .navbar .navbar__toggle.active .bar:nth-child(2) {
