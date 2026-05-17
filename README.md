@@ -20,8 +20,6 @@ Welcome to SM Marketing, your one-stop destination for all things related to soc
 ## Learning Goals
 
 - Mastering JavaScript to create more dynamic and interactive web experiences.
-- Understanding the principles of effective social media marketing.
-- Enhancing skills in responsive web design using media queries.
 
 ## Badges
 
