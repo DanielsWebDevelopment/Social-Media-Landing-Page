@@ -30,5 +30,3 @@ Welcome to SM Marketing, your one-stop destination for all things related to soc
 ## Screenshots
 
 ![SM Marketing](https://github.com/DanielsWebDevelopment/Social-Media-Landing-Page/assets/129445203/961bbc03-6def-4ed2-bc22-b46a424e206f)
-
-Feel free to explore our website and learn more about the exciting world of social media marketing!
