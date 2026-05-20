@@ -14,8 +14,6 @@ Welcome to SM Marketing, your one-stop destination for all things related to soc
 
 - Responsive design using media queries for seamless viewing on all devices.
 - Engaging animations powered by GSAP to enhance user experience.
-- Integration of Swiper.js for interactive carousel elements.
-- Utilization of Bootstrap for streamlined and responsive layout.
 
 ## Learning Goals
 
