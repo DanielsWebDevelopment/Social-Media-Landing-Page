@@ -24,7 +24,6 @@ Welcome to SM Marketing, your one-stop destination for all things related to soc
 ## Badges
 
 [![JavaScript](https://img.shields.io/badge/Language-JavaScript-yellow)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
-[![HTML5](https://img.shields.io/badge/Language-HTML5-orange)](https://developer.mozilla.org/en-US/docs/Web/HTML)
 
 ## Screenshots
 
