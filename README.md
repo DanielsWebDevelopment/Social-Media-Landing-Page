@@ -17,11 +17,8 @@ Welcome to SM Marketing, your one-stop destination for all things related to soc
 
 ## Learning Goals
 
-- Mastering JavaScript to create more dynamic and interactive web experiences.
-
 ## Badges
 
 [![JavaScript](https://img.shields.io/badge/Language-JavaScript-yellow)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 
 ## Screenshots
-
