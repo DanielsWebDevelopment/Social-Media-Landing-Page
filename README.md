@@ -7,8 +7,6 @@ Welcome to SM Marketing, your one-stop destination for all things related to soc
 - HTML5
 - CSS3
 - JavaScript
-- Swiper.js
-- Bootstrap
 
 ## Features
 
