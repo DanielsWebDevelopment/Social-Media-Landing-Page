@@ -13,14 +13,13 @@ document.addEventListener("DOMContentLoaded", (event) => {
       }
     });
 
-    gsap.from(".about__sub-info", {
+    gsap.from("", {
         x: -100, 
         opacity: 0, 
         duration: 10,
         scrollTrigger: {
           trigger: ".about__sub-info",
           start: "right bottom",
-          end: "center center",
           scrub: true
         }
     });
