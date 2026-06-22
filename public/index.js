@@ -56,5 +56,3 @@ navbarToggle.addEventListener('click', () => {
     navbarToggle.classList.toggle('active');
     sidebar.classList.toggle('active');
 });
-
-var swiper = new Swiper(".mySwiper", {});

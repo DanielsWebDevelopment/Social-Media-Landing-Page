@@ -11,9 +11,3 @@ Welcome to SM Marketing, your one-stop destination for all things related to soc
 ## Features
 
 - Responsive design using media queries for seamless viewing on all devices.
-
-## Learning Goals
-
-## Badges
-
-## Screenshots
