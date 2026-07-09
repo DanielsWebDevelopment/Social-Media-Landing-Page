@@ -12,18 +12,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
         scrub: true
       }
     });
-
-    gsap.from("", {
-        x: -100, 
-        opacity: 0, 
-        duration: 10,
-        scrollTrigger: {
-          trigger: ".about__sub-info",
-          start: "right bottom",
-          scrub: true
-        }
-    });
-
+    
     gsap.from(".online_title", {
         y: 100,
         opacity: 0, 
