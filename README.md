@@ -4,10 +4,3 @@ Welcome to SM Marketing, your one-stop destination for all things related to soc
 
 ## Technologies Used
 
-- HTML5
-- CSS3
-- JavaScript
-
-## Features
-
-- Responsive design using media queries for seamless viewing on all devices.

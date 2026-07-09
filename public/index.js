@@ -24,18 +24,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
           scrub: true
         }
     });
-
-    gsap.from(".ratings__right", {
-        y: 100, 
-        opacity: 0, 
-        duration: 5,
-        scrollTrigger: {
-          trigger: ".ratings__right",
-          start: "right bottom",
-          end: "center center",
-          scrub: true
-        }
-    });
   });
 
 const navbarToggle = document.getElementById('navbar-toggle');
