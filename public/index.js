@@ -12,18 +12,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
         scrub: true
       }
     });
-    
-    gsap.from(".online_title", {
-        y: 100,
-        opacity: 0, 
-        duration: 10,
-        scrollTrigger: {
-          trigger: ".online_title",
-          start: "right bottom",
-          end: "center center",
-          scrub: true
-        }
-    });
   });
 
 const navbarToggle = document.getElementById('navbar-toggle');
