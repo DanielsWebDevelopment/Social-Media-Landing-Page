@@ -1,0 +1,18 @@
+name: Passing Workflow Test
+
+on:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Run Success Test
+        run: |
+          echo "Starting test..."
+          echo "Everything passed!"
+          exit 0
