@@ -1,0 +1,22 @@
+name: Failing Workflow Test
+
+on:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Run Failure Test
+        run: |
+          echo "Starting test..."
+          echo "Something went wrong!"
+          exit 1
+
+      - name: This Should Skip
+        run: |
+          echo "You should not see this run"
