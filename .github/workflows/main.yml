@@ -1,4 +1,4 @@
-name: Passing Workflow Test
+name: Failing Workflow Test
 
 on:
   pull_request:
@@ -11,8 +11,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Run Success Test
+      - name: Run Failure Test
         run: |
           echo "Starting test..."
-          echo "Everything passed!"
-          exit 0
+          echo "Something went wrong!"
+          exit 1
+
+      - name: This Should Skip
+        run: |
+          echo "You should not see this run"
