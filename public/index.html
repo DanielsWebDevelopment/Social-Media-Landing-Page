@@ -153,6 +153,28 @@
       color: #71717a;
       text-align: center;
     }
+
+    .supporting-section {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 96px 24px;
+      text-align: center;
+    }
+
+    .supporting-section h2 {
+      margin-bottom: 16px;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      line-height: 1.1;
+      letter-spacing: -0.05em;
+    }
+
+    .supporting-section p {
+      max-width: 620px;
+      margin: 0 auto;
+      color: #a1a1aa;
+      font-size: 1.125rem;
+      line-height: 1.7;
+    }
   </style>
 </head>
 
@@ -192,23 +214,53 @@
     </section>
   </main>
 
+  <section class="supporting-section">
+    <h2>Ready to build something great?</h2>
+    <p>
+      Join Nova today and start transforming your ideas into reality.
+      It's simple, intuitive, and designed for creators like you.
+    </p>
+  </section>
+
+  <section class="supporting-section">
+    <h2>Unlock new possibilities.</h2>
+    <p>
+      Discover features designed to streamline your workflow and bring your vision to life with ease.
+    </p>
+  </section>
+
+  <section class="supporting-section">
+    <h2>Streamline your process.</h2>
+    <p>
+      Enhance your productivity with tools designed for efficiency and seamless collaboration.
+    </p>
+  </section>
+
+  <section class="supporting-section">
+    <h2>Connect with your audience.</h2>
+    <p>
+      Build stronger relationships and engage effectively with your community using Nova's features.
+    </p>
+  </section>
+
+  <section class="supporting-section">
+    <h2>Innovate with confidence.</h2>
+    <p>
+      Experiment and grow with a platform that supports your creative and technical ambitions.
+    </p>
+  </section>
+
+  <section class="supporting-section">
+    <h2>Your ideas, brought to life.</h2>
+    <p>
+      From concept to launch, Nova provides the environment you need to succeed.
+    </p>
+  </section>
+
   <footer>
     <span>&copy; <span id="year"></span> Nova. All rights reserved.</span>
   </footer>
 
   <script src="app.js"></script>
-
-  <script>
-    const button = document.getElementById("get-started");
-    const message = document.getElementById("message");
-    const year = document.getElementById("year");
-
-    year.textContent = new Date().getFullYear();
-
-    button.addEventListener("click", () => {
-      message.textContent = "Your landing page is working correctly.";
-      console.log("Get Started button clicked.");
-    });
-  </script>
 </body>
 </html>
