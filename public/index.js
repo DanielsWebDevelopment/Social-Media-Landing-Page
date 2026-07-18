@@ -4,10 +4,14 @@ document.addEventListener("DOMContentLoaded", (event) => {
     gsap.from(".about__info-right img", {
       x: 100, 
       opacity: 0, 
-      duration: 10,
+      // Removed 'duration: 10' as 'scrub: true' makes the animation progress
+      // directly tied to scroll position, making a fixed duration less relevant
+      // and potentially confusing for a scroll-driven animation.
       scrollTrigger: {
         trigger: ".about__info-right",
-        start: "right bottom",
+        // 'start: "top bottom"' means the animation begins when the top of the
+        // trigger element hits the bottom of the viewport, a common entry point.
+        start: "top bottom", 
         end: "center center",
         scrub: true
       }
@@ -16,10 +20,14 @@ document.addEventListener("DOMContentLoaded", (event) => {
     gsap.from(".online_title", {
         y: 100,
         opacity: 0, 
-        duration: 10,
+        // Removed 'duration: 10' as 'scrub: true' makes the animation progress
+        // directly tied to scroll position, making a fixed duration less relevant
+        // and potentially confusing for a scroll-driven animation.
         scrollTrigger: {
           trigger: ".online_title",
-          start: "right bottom",
+          // 'start: "top bottom"' means the animation begins when the top of the
+          // trigger element hits the bottom of the viewport, a common entry point.
+          start: "top bottom", 
           end: "center center",
           scrub: true
         }
@@ -29,7 +37,12 @@ document.addEventListener("DOMContentLoaded", (event) => {
 const navbarToggle = document.getElementById('navbar-toggle');
 const sidebar = document.getElementById('sidebar_nav');
 
-navbarToggle.addEventListener('click', () => {
+
+// Define a named function for the click event handler
+function toggleNavbarAndSidebar() {
     navbarToggle.classList.toggle('active');
     sidebar.classList.toggle('active');
-});
+}
+
+// Attach the named function as the event listener
+navbarToggle.addEventListener('click', toggleNavbarAndSidebar);
