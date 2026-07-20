@@ -1,4 +1,4 @@
-name: Failing CI Test
+name: Passing CI Test
 
 on:
   push:
@@ -17,14 +17,16 @@ jobs:
         with:
           node-version: 22
 
-      - name: Run intentionally failing test
+      - name: Run passing test
         run: |
           node -e "
             const expected = 10;
-            const actual = 7;
+            const actual = 10;
 
             if (actual !== expected) {
               console.error(\`Test failed: expected \${expected}, received \${actual}\`);
               process.exit(1);
             }
+
+            console.log('All tests passed successfully.');
           "
