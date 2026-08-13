@@ -1,0 +1,12 @@
+{
+  "name": "senthera-priority-68-fixture",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "npm run build --silent && node test-runner.cjs"
+  },
+  "devDependencies": {
+    "typescript": "~5.4.5"
+  }
+}
