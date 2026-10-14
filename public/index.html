@@ -183,8 +183,18 @@
     <a class="logo" href="#">Nova</a>
 
     <nav aria-label="Main navigation">
-      <a href="#features">Features</a>
-      <a href="#about">About</a>
+      <ul class="main-nav-list">
+        <li><a href="#features">Features</a></li>
+        <li class="dropdown">
+          <button aria-haspopup="true" aria-expanded="false" id="servicesDropdownButton">Services <span class="dropdown-indicator">▼</span></button>
+          <ul class="submenu" aria-labelledby="servicesDropdownButton">
+            <li><a href="#service1">Service One</a></li>
+            <li><a href="#service2">Service Two</a></li>
+            <li><a href="#service3">Service Three</a></li>
+          </ul>
+        </li>
+        <li><a href="#about">About</a></li>
+      </ul>
     </nav>
   </header>
 
@@ -200,11 +210,11 @@
       </p>
 
       <div class="actions">
-        <button id="get-started" class="button button-primary" type="button">
+        <button id="get-started" class="button button-primary" type="button" aria-label="Get started with Nova">
           Get Started
         </button>
 
-        <a class="button button-secondary" href="https://github.com">
+        <a class="button button-secondary" href="https://github.com" aria-label="View Nova on GitHub repository">
           View on GitHub
         </a>
       </div>
