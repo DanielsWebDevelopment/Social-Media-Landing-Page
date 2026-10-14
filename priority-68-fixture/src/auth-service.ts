@@ -38,7 +38,8 @@ export class AuthService {
         this.sessionService.revoke();
 
         return {
-            authenticated: false
+            authenticated: false,
+            userId: undefined
         };
     }
 }
