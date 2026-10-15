@@ -27,8 +27,4 @@ export function createSettingsViewModel(
 export function toggleCompactLayout(
     settings: SettingsState
 ): SettingsState {
-    return {
-        ...settings,
-        compactLayout: !settings.compactLayout
-    };
 }
