@@ -11,28 +11,6 @@ export interface StoredSession {
     readonly status: SessionStatus;
 }
 
-export interface SessionStore {
-    read(): StoredSession | undefined;
-    write(session: StoredSession): void;
-    clear(): void;
-}
-
-export class InMemorySessionStore implements SessionStore {
-    protected current: StoredSession | undefined;
-
-    read(): StoredSession | undefined {
-        return this.current ? { ...this.current } : undefined;
-    }
-
-    write(session: StoredSession): void {
-        this.current = { ...session };
-    }
-
-    clear(): void {
-        this.current = undefined;
-    }
-}
-
 export class SessionService {
     create(
         userId: string,
