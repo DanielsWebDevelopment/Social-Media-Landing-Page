@@ -39,10 +39,6 @@ export class SessionService {
         lifetimeMs = DEFAULT_SESSION_LIFETIME_MS
     ): StoredSession {
         const normalizedUserId = userId.trim();
-
-        if (!normalizedUserId) {
-            throw new Error('A user ID is required.');
-        }
     }
 
     restore(): StoredSession | undefined {
