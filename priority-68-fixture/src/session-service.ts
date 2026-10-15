@@ -23,14 +23,6 @@ export class InMemorySessionStore implements SessionStore {
     read(): StoredSession | undefined {
         return this.current ? { ...this.current } : undefined;
     }
-
-    write(session: StoredSession): void {
-        this.current = { ...session };
-    }
-
-    clear(): void {
-        this.current = undefined;
-    }
 }
 
 export class SessionService {

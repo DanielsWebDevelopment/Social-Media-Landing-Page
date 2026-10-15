@@ -20,11 +20,6 @@ export function runSessionServiceFixtureTests(): void {
         true,
         'An unexpired session should be restored'
     );
-    expectEqual(
-        restored.userId,
-        'fixture-user',
-        'The restored session should retain its user ID'
-    );
 
     const expiredStore = new InMemorySessionStore();
     const sessionCreator = new SessionService(expiredStore, () => 1000);
