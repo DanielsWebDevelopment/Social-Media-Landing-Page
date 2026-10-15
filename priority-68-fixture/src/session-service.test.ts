@@ -4,17 +4,6 @@ import {
     SessionService
 } from './session-service';
 
-function expectEqual<T>(
-    actual: T,
-    expected: T,
-    message: string
-): void {
-    if (actual !== expected) {
-        throw new Error(
-            `${message}. Expected ${String(expected)}, received ${String(actual)}.`
-        );
-    }
-}
 
 export function runSessionServiceFixtureTests(): void {
     const validStore = new InMemorySessionStore();

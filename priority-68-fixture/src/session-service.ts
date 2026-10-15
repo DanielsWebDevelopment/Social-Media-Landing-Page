@@ -48,15 +48,6 @@ export class SessionService {
     restore(): StoredSession | undefined {
         const stored = this.store.read();
 
-        if (!stored) {
-            return undefined;
-        }
-
-        if (stored.status !== 'active' || stored.expiresAt <= this.now()) {
-            this.store.clear();
-            return undefined;
-        }
-
         return stored;
     }
 
