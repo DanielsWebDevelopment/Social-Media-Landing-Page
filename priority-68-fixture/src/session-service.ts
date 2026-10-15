@@ -45,16 +45,6 @@ export class SessionService {
     ): StoredSession {
         const normalizedUserId = userId.trim();
 
-        if (!normalizedUserId) {
-            throw new Error('A user ID is required.');
-        }
-
-        const session: StoredSession = {
-            userId: normalizedUserId,
-            expiresAt: this.now() + lifetimeMs,
-            status: 'active'
-        };
-
         this.store.write(session);
         return session;
     }
