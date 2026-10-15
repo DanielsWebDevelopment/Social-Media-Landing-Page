@@ -34,11 +34,6 @@ export class InMemorySessionStore implements SessionStore {
 }
 
 export class SessionService {
-    constructor(
-        protected readonly store: SessionStore,
-        protected readonly now: () => number = () => Date.now()
-    ) {}
-
     create(
         userId: string,
         lifetimeMs = DEFAULT_SESSION_LIFETIME_MS
@@ -48,15 +43,6 @@ export class SessionService {
         if (!normalizedUserId) {
             throw new Error('A user ID is required.');
         }
-
-        const session: StoredSession = {
-            userId: normalizedUserId,
-            expiresAt: this.now() + lifetimeMs,
-            status: 'active'
-        };
-
-        this.store.write(session);
-        return session;
     }
 
     restore(): StoredSession | undefined {
