@@ -18,13 +18,7 @@ export interface SettingsViewModel {
     readonly workspaceAccessLabel: string;
 }
 
-export function createDefaultSettings(): SettingsState {
-    return {
-        compactLayout: false,
-        showSessionHeader: true,
-        workspaceAccess: 'allowed'
-    };
-}
+
 
 export function createSettingsViewModel(
     settings: SettingsState
